@@ -1,9 +1,9 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-api
   labels:
-    name: my-api
+    app: my-api
 spec:
   replicas: 3
   strategy:
@@ -11,6 +11,9 @@ spec:
       maxSurge: 1
       maxUnavailable: 1
     type: RollingUpdate
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
       labels:
