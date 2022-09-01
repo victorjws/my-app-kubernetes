@@ -1,0 +1,11 @@
+namespace: prod
+namePrefix: prod-
+resources:
+- ../base
+- namespace.yaml
+patchesStrategicMerge:
+- deployment.yaml
+images:
+- name: ost0318/api
+  # newName: my-nginx
+  newTag: alpine
